@@ -1,0 +1,24 @@
+[package]
+name = "evm-client"
+version = "0.1.0"
+authors = [
+    "Noah J <noahj@berkeley.edu>"
+]
+
+[features]
+default = []
+benchmark = ["client-utils/benchmark"]
+benchmark_transfer = []
+benchmark_get_balance = []
+
+[dependencies]
+client-utils = { path = "../ekiden/clients/utils" }
+ekiden-core-common = { path = "../ekiden/core/common" }
+ekiden-rpc-client = { path = "../ekiden/rpc/client" }
+evm-api = { path = "../api" }
+lazy_static = "1.0"
+clap = "2.29.1"
+rand = "0.4"
+hex = "0.3.1"
+futures = "0.1"
+tokio-core = "0.1"

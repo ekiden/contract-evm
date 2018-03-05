@@ -1,6 +1,6 @@
-# Dummy Ekiden contract
+# EVM contract (currently just implements old `ethtoken` contract)
 
-[![CircleCI](https://circleci.com/gh/ekiden/contract-dummy/tree/master.svg?style=svg)](https://circleci.com/gh/ekiden/contract-dummy/tree/master)
+[![CircleCI](https://circleci.com/gh/ekiden/contract-evm/tree/master.svg?style=svg)](https://circleci.com/gh/ekiden/contract-evm/tree/master)
 
 ## Checking out
 
