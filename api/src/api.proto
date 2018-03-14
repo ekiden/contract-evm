@@ -22,30 +22,22 @@ message EthState {
     map<string, AccountState> accounts = 1;
 }
 
-message CreateTokenRequest {
-    string creator_address = 1;
-    uint64 initial_supply = 2;
+message CreateContractRequest {
 }
 
-message CreateTokenResponse {
-    string contract_address = 1;
+message CreateContractResponse {
 }
 
-message TransferTokenRequest {
-    string contract_address = 1;
-    string from_address = 2;
-    string to_address = 3;
-    uint64 amount = 4;
+message MixGenesRequest {
+    // Contract parameters
+    string matron_genes = 1;
+    string sire_genes = 2;
+    uint64 target_block = 3;
+
+    // Mining parameters for the VM
+    uint64 current_block = 4;
 }
 
-message TransferTokenResponse {
-}
-
-message GetBalanceRequest {
-    string contract_address = 1;
-    string address = 2;
-}
-
-message GetBalanceResponse {
-    uint64 balance = 1;
+message MixGenesResponse {
+    string mixed_genes = 1;
 }

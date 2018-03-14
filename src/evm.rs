@@ -66,7 +66,14 @@ fn handle_fire(vm: &mut SeqTransactionVM<MainnetEIP160Patch>, state: &EthState) 
                     .unwrap();
             }
             Err(RequireError::Blockhash(number)) => {
-                vm.commit_blockhash(number, H256::default()).unwrap();
+                let result = match number.as_u32() {
+                    4976641 => H256::from_str(
+                        "0x4f5bf1c9fc97e2c17a34859bb885a67519c19e2a0d9176da45fcfee758fadf82",
+                    ).unwrap(),
+                    _ => panic!("VM requested blockhash of unknown block: {}", number),
+                };
+
+                vm.commit_blockhash(number, result).unwrap();
             }
         }
     }
@@ -194,11 +201,12 @@ fn update_state_from_vm(vm: &SeqTransactionVM<MainnetEIP160Patch>, _state: &EthS
 pub fn fire_transactions_and_update_state(
     transactions: &[ValidTransaction],
     state: &EthState,
+    block_number: u64,
 ) -> (EthState, Vec<u8>) {
     let block_header = HeaderParams {
         beneficiary: Address::default(),
         timestamp: 0,
-        number: U256::zero(),
+        number: U256::from(block_number),
         difficulty: U256::zero(),
         gas_limit: Gas::zero(),
     };

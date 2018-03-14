@@ -7,9 +7,7 @@ rpc_api! {
 
     rpc init_genesis_state(InitStateRequest) -> InitStateResponse;
 
-    rpc create(CreateTokenRequest) -> CreateTokenResponse;
+    rpc create(CreateContractRequest) -> CreateContractResponse;
 
-    rpc transfer(TransferTokenRequest) -> TransferTokenResponse;
-
-    rpc get_balance(GetBalanceRequest) -> GetBalanceResponse;
+    rpc mix_genes(MixGenesRequest) -> MixGenesResponse;
 }
